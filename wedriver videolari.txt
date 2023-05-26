@@ -1,0 +1,15 @@
+1- hocanin sondan bir oinceki olan tarayici ayarlarivideosunda cok cesitli ayarlar var
+popup lari engelleme, maksimum yapma vb
+bir de mesela respnsive ayarlar  var, ipad mini de veya samsung da kontrol etmek istersen gibi onlari da orada bulabilrisin
+
+Once framwork kuruldu
+
+1- pytest install edildi pip install pytest
+
+2-selenium yuklendi pip install selenium==4.6.0
+3- proje de sag tiklayip python package olsutrduk
+4- bu pakete bu sefer tikllayip python file olusturduk.test_hesap_makinesi
+
+
+
+
