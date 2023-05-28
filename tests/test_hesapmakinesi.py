@@ -18,4 +18,4 @@ def test_cikar():
 
 #add add
 
-#simddd
+#kımlık
