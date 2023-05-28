@@ -16,4 +16,6 @@ def test_toplamTesti():
 def test_cikar():
     assert cikarma(4,1)==3
 
-#add
+#add add
+
+#cdskfjds
