@@ -14,4 +14,6 @@ def test_toplamTesti():
     assert toplama(2,2)==4
 
 def test_cikar():
-    assert cikarma(4,1)==4
+    assert cikarma(4,1)==3
+
+#add
