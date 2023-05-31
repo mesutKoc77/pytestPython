@@ -11,19 +11,19 @@ def bolme(a, b):
 
 def carpma(a, b):
     return a * b
-
-def test_toplamTesti():
+@pytest.mark.smoke
+@pytest.mark.elma
+def test_toplamaTesti():
     assert toplama(2,2)==4
-
-def test_cikar():
+@pytest.mark.elma
+@pytest.mark.armut
+def test_cikarmaTesti():
     assert cikarma(4,1)==3
-def test_bolme():
+@pytest.mark.elma
+def test_bolmeTesti():
     assert bolme(20,10)==2
-
-
 @pytest.mark.xfail
-def test_carpma():
+def test_carpmaTesti():
     assert carpma(2,8)==15
-
 
 
