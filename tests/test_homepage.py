@@ -26,7 +26,6 @@ class TestHomepage:
         ilkurunlinki.click()
         urunismidetaysayfasi=self.driver.find_element(By.CSS_SELECTOR,"div.product-name h1").text.strip()
         urunfiyatidetaysayfasi=self.driver.find_element(By.CSS_SELECTOR,"div.product-price span").text.strip()
-
         assert urun_ismi==urunismidetaysayfasi
         assert urunfiyati==urunfiyatidetaysayfasi
 

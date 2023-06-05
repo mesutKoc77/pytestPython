@@ -16,6 +16,8 @@ class TestUrunDetaylari:
         quantity=int(re.findall(r'\d+', quantity)[0])
         self.driver.find_element(By.CSS_SELECTOR, "input[id^='add-to-cart-button']").click()
 
+
+
         time.sleep(1)  # sepetteki urun sayisinin degismesini bekliyor
 
         sepetteki_urun_sayisi = self.driver.find_element(By.CSS_SELECTOR, "a.ico-cart span:nth-child(2)").text
