@@ -12,7 +12,6 @@ class TestHomepage:
 
         anasayfa = Anasayfa(self.driver)
         actual_menu_items = anasayfa.ust_menu_isimlerini_liste_ver()
-
         for i in range(len(expected_menu)):
             assert expected_menu[i] == actual_menu_items[i]
 
@@ -20,11 +19,12 @@ class TestHomepage:
         self.driver.get("https://demowebshop.tricentis.com/")
         anasayfa = Anasayfa(self.driver)
         urun_detay_sayfasi = UrunDetaySayfasi(self.driver)
+
         urun_ismi = anasayfa.ilk_urun_ismini_ver()
         urun_fiyati = anasayfa.ilk_urun_fiyatini_ver()
         anasayfa.ilk_urun_ismine_tikla()
-
         urunismidetaysayfasi = urun_detay_sayfasi.urun_ismini_ver()
+
         urunfiyatidetaysayfasi = urun_detay_sayfasi.urun_fiyatini_ver()
         assert urun_ismi == urunismidetaysayfasi
         assert urun_fiyati == urunfiyatidetaysayfasi
