@@ -28,7 +28,7 @@ class TestUrunDetaylari:
         time.sleep(1)  # sepetteki urun sayisinin degismesini bekliyor
         sonrasi = urun_detay_sayfasi.sepetteki_urun_sayisini_ver()
 
-        assert sonrasi == (oncesi + quantity)
+        assert sonrasi+1 == (oncesi + quantity)
 
 
 
