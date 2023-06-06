@@ -8,12 +8,20 @@ from pages.urun_detay_sayfasi import UrunDetaySayfasi
 
 @pytest.mark.usefixtures("setup")
 class TestUrunDetaylari:
+
+    @pytest.fixture(autouse=True)
+    def class_setup(self):
+        self.anasayfa = Anasayfa(self.driver)
+
+
+
     def test_add_to_cart_button_adds_product_to_cart(self):
         self.driver.get("https://demowebshop.tricentis.com/")
-        anasayfa=Anasayfa(self.driver)
-        urun_detay_sayfasi=UrunDetaySayfasi(self.driver)
+        #anasayfa=Anasayfa(self.driver)
+        #urun_detay_sayfasi=UrunDetaySayfasi(self.driver)
+        #burdaki nesneyi de Anasayfa daki islemlerim neticesinde olusturdugumdan bunu da yoruma alabilirim.
 
-        anasayfa.gift_card_olmayan_ilk_urun_ismine_tikla()
+        urun_detay_sayfasi=self.anasayfa.gift_card_olmayan_ilk_urun_ismine_tikla()
         oncesi=urun_detay_sayfasi.sepetteki_urun_sayisini_ver()
         quantity=urun_detay_sayfasi.quantity_sayisini_ver()
         urun_detay_sayfasi.add_to_cart_buttona_tikla()

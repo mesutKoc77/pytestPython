@@ -2,6 +2,7 @@
 from selenium.webdriver.common.by import By
 
 from pages.PageBase import PageBase
+from pages.urun_detay_sayfasi import UrunDetaySayfasi
 
 
 class Anasayfa(PageBase):
@@ -34,7 +35,12 @@ class Anasayfa(PageBase):
     def ilk_urun_ismine_tikla(self):
         ilk_urun_ismi= self.wait_element_visibility(Anasayfa.ILK_URUN_ISMI)
         ilk_urun_ismi.click()
+        urun_detay_sayfasi = UrunDetaySayfasi(self.driver) #ve burada bir baska sayfaya gectigimiz icin
+        #hemen bu sayfanin da bir nesnesini olusturduk. Gelmisken bos gitmeyelim diye.
+        return urun_detay_sayfasi
     def gift_card_olmayan_ilk_urun_ismine_tikla(self):
         self.driver.find_element(*Anasayfa.ILK_GIFT_CARD_OLMAYAN_URUN_ISMI).click()
+        urun_detay_sayfasi = UrunDetaySayfasi(self.driver)
+        return urun_detay_sayfasi
 
 
