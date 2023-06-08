@@ -1,9 +1,11 @@
 import pytest
+import softest
+
 from pages.anasayfa import Anasayfa
 
 
 @pytest.mark.usefixtures("setup")
-class TestHomepage:
+class TestHomepage(softest.TestCase):
     #dikkat edilirse her bir anasayfa page ini kullanirken asagidaki test_ fonksiyonlari anasayfa degiskenini
     # cagiriyor. mesela ilk testte cagirdik simdi de ikincisinde cagiriyoruz. Dolayisiyla AnaSayfa class ini
     # fixture olrak belirler ve kullanacak test_ fonksiyonuna atarsak test calismadan once bir anasayfa nesnesi
@@ -61,7 +63,15 @@ class TestHomepage:
         #yani sonuc olarak, ilgili bir test fonksiyonu bizi bir baska sayfaya yonlendiriyorsa bu durmda ilgili
         # sayfanin nesnesi return edilirse problöem de cozulmus olur.#
         urunismidetaysayfasi = urun_detay_sayfasi.urun_ismini_ver()
-
         urunfiyatidetaysayfasi = urun_detay_sayfasi.urun_fiyatini_ver()
-        assert urun_ismi == urunismidetaysayfasi
-        assert urun_fiyati == urunfiyatidetaysayfasi
+
+        self.soft_assert(self.assertEqual, urun_ismi, urunismidetaysayfasi, "urun ismi detay sayfasinda farkli")
+        self.soft_assert(self.assertEqual, urun_fiyati, urunfiyatidetaysayfasi, "urun fiyati detay sayfasinda farkli")
+        self.assert_all()
+        
+
+
+
+
+
+        
