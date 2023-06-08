@@ -14,7 +14,7 @@ def setup(request, browser):
         driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
     elif browser=="firefox":
         driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()))
-    elif browser == "safari":  # bu projede safari kullanilmadi, ornek icin konuldu
+    elif browser == "safari":  # bu projede safari  kullanilmadi, ornek icin konuldu
         # safarinin kullanimina iliskin hocanin python selenium video serisi var orada chrome driver i nasil ekledi
         # ise oraya safari driver da eklenebilir.
         service = Service("./drivers/safari")
