@@ -4,6 +4,7 @@ import pytest
 from ddt import ddt, data, unpack
 
 from pages.arama_sayfasi import AramaSayfasi
+from utilities.ExcelYardimcisi import ExcelYardimcisi
 
 
 @pytest.mark.usefixtures("setup")
@@ -11,7 +12,7 @@ from pages.arama_sayfasi import AramaSayfasi
 @ddt #data driven test
 class TestArama(unittest.TestCase):
 
-    @data(   ("ab","Search term minimum length is 3 characters"),("abc","No products were found that matched your criteria.")         )
+    @data(*ExcelYardimcisi.excel_listeler_listesine_cevir("./testdata/arama.xlsx","Sheet1") )
     @unpack
     def test_arama_uyari_verir(self, kelime, beklenen_mesaj):
         self.driver.get("https://demowebshop.tricentis.com/")
