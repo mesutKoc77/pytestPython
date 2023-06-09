@@ -30,7 +30,7 @@ class TestHomepage(softest.TestCase):
         for i in range(len(expected_menu)):
             assert expected_menu[i] == actual_menu_items[i]
 
-
+    @pytest.mark.smoke
     def test_urun_ismine_tiklar_ve_urun_sayfasi_acilir(self):
         self.driver.get(self.baseurl)
         #anasayfa = Anasayfa(self.driver)#buraya driver i gecmem gerekiyor ki o sayfada ilgili
@@ -61,8 +61,17 @@ class TestHomepage(softest.TestCase):
 
         #yani sonuc olarak, ilgili bir test fonksiyonu bizi bir baska sayfaya yonlendiriyorsa bu durmda ilgili
         # sayfanin nesnesi return edilirse problöem de cozulmus olur.#
+
+        print ("Anasayfa urun ismi: " + urun_ismi)
+        print ("anasayfa urun fiyati: " + urun_fiyati)
         urunismidetaysayfasi = urun_detay_sayfasi.urun_ismini_ver()
         urunfiyatidetaysayfasi = urun_detay_sayfasi.urun_fiyatini_ver()
+        #--capture sys sistemden gelen loglari veya print sonuclarini da yakala
+        #mesela rapolarimizda testlerimizin eden basarisiz oldugunu da gormek istersek bunu da terminal e
+        #eklememmiz gerekiyor
+        #python -m pytest -m smoke --html=rapor.html --self-contained-html --browser chrome --env pr
+        #od --capture sys
+
 
         self.soft_assert(self.assertEqual, urun_ismi, urunismidetaysayfasi, "urun ismi detay sayfasinda farkli")
         self.soft_assert(self.assertEqual, urun_fiyati, urunfiyatidetaysayfasi, "urun fiyati detay sayfasinda farkli")
