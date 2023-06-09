@@ -20,6 +20,8 @@ class TestHomepage(softest.TestCase):
 
 
     def test_top_menu_items(self):
+        print("base url degeri = "+self.baseurl)
+        self.driver.get(self.baseurl)
         expected_menu = ["BOOKS", "COMPUTERS", "ELECTRONICS", "APPAREL & SHOES", "DIGITAL DOWNLOADS",
                          "JEWELRY", "GIFT CARDS"]
 
@@ -29,11 +31,8 @@ class TestHomepage(softest.TestCase):
             assert expected_menu[i] == actual_menu_items[i]
 
 
-
-
-
     def test_urun_ismine_tiklar_ve_urun_sayfasi_acilir(self):
-        self.driver.get("https://demowebshop.tricentis.com/")
+        self.driver.get(self.baseurl)
         #anasayfa = Anasayfa(self.driver)#buraya driver i gecmem gerekiyor ki o sayfada ilgili
         #islemleri yapabilelim.
         # urun_detay_sayfasi = UrunDetaySayfasi(self.driver)
