@@ -18,7 +18,7 @@ class TestHomepage(softest.TestCase):
         self.anasayfa = Anasayfa(self.driver)
 
 
-
+    @pytest.mark.smoke
     def test_top_menu_items(self):
         print("base url degeri = "+self.baseurl)
         self.driver.get(self.baseurl)
